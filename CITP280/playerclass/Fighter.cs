@@ -9,26 +9,26 @@ namespace CITP280.playerclass
 {
     class Fighter : BaseClass
     {
-        public override string className => "Fighter";
+        public override string ClassName => "Fighter";
 
-        public override BaseAttackScale baseAttack => BaseAttackScale.FULL;
+        public override BaseAttackScale BaseAttack => BaseAttackScale.FULL;
 
-        public override SavesScale fortitudeScale => SavesScale.GOOD;
+        public override SavesScale FortitudeScale => SavesScale.GOOD;
 
-        public override SavesScale reflexScale => SavesScale.POOR;
+        public override SavesScale ReflexScale => SavesScale.POOR;
 
-        public override SavesScale willScale => SavesScale.POOR;
+        public override SavesScale WillScale => SavesScale.POOR;
 
-        public override int skillRanksPerLevel => 2;
+        public override int SkillRanksPerLevel => 2;
 
-        public override int dieType => 10;
+        public override int DieType => 10;
 
         public override List<string> GetClassAbilitiesTableList()
         {
             throw new NotImplementedException();
         }
 
-        public override List<string> getClassSkills()
+        public override List<string> GetClassSkills()
         {
             List<string> skills = new List<string>();
             skills.Add("Climb");

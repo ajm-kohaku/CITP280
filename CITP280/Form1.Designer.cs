@@ -117,7 +117,6 @@
             this.lbClassSkillsList.Size = new System.Drawing.Size(293, 135);
             this.lbClassSkillsList.TabIndex = 8;
             this.lbClassSkillsList.Text = "label6";
-            this.lbClassSkillsList.Click += new System.EventHandler(this.ClassSkillsList_Click);
             // 
             // dgClassTableView
             // 

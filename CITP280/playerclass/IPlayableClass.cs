@@ -14,17 +14,17 @@ namespace CITP280.playerclass
     /// </summary>
     public interface IPlayableClass
     {
-        String className { get; }
-        ClassTypes classType { get; }
-        BaseAttackScale baseAttack { get; }
-        SavesScale fortitudeScale { get; }
-        SavesScale reflexScale { get; }
-        SavesScale willScale { get; }
-        int skillRanksPerLevel { get; }
-        int dieType { get; }
-        int maxLevel { get; }
+        String ClassName { get; }
+        ClassTypes ClassType { get; }
+        BaseAttackScale BaseAttack { get; }
+        SavesScale FortitudeScale { get; }
+        SavesScale ReflexScale { get; }
+        SavesScale WillScale { get; }
+        int SkillRanksPerLevel { get; }
+        int DieType { get; }
+        int MaxLevel { get; }
 
-        List<string> getClassSkills();
+        List<string> GetClassSkills();
         DataTable ClassDatatableView();
     }
 }

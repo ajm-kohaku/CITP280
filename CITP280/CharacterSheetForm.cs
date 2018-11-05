@@ -15,18 +15,16 @@ namespace CITP280
         {
             InitializeComponent();
 
-            //initialize ability score modifiers
-            tbStrAbilityMod.Text = AbilityModifierCalculation(0);
-            tbDexAbilityMod.Text = AbilityModifierCalculation(0);
-            tbConAbilityMod.Text = AbilityModifierCalculation(0);
-            tbIntAbilityMod.Text = AbilityModifierCalculation(0);
-            tbWisAbilityMod.Text = AbilityModifierCalculation(0);
-            tbChaAbilityMod.Text = AbilityModifierCalculation(0);
-        }
+            //the below subscribes to the AbilityScoreChanged event for each ability score
+            this.StrengthScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Strength_AbilityScoreChanged);
+            this.DexterityScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Dexterity_AbilityScoreChanged);
+            this.ConstitutionScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Constitution_AbilityScoreChanged);
+            this.IntelligenceScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Intelligence_AbilityScoreChanged);
+            this.WisdomScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Wisdom_AbilityScoreChanged);
+            this.CharismaScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Charisma_AbilityScoreChanged);
 
-        internal List<IPlayableClass> PlayableClasses {
-            get {
-                playableClasses = new List<IPlayableClass>
+            //create list of playable classes
+            playableClasses = new List<IPlayableClass>
                 {
                     new Barbarian(),
                     new Bard(),
@@ -35,159 +33,115 @@ namespace CITP280
                     new Monk(),
                     new Sorcerer()
                 };
-                return playableClasses;
-            }
-        }
 
-        private void CharacterSheetForm_Load(object sender, EventArgs e)
-        {
-            //put list of playable classes into the class names drop down.
-            foreach (IPlayableClass playable in PlayableClasses)
+            //for each playable class add the class's name to the classNames dropdown list
+            foreach (IPlayableClass playable in playableClasses)
             {
-                cbClassNames1.Items.Add(playable.className);
-                cbClassNames2.Items.Add(playable.className);
-                cbClassNames3.Items.Add(playable.className);
+                cbClassNames1.Items.Add(playable.ClassName);
             }
         }
 
-        private void StrengthTotal_TextChanged(object sender, System.EventArgs e)
-        {
-
-            if (Int32.TryParse(tbStrAbilityTotal.Text, out int strength))
-            {
-                tbStrAbilityMod.Text = AbilityModifierCalculation(strength);
-            }
-        }
-
-        private void StrengthAggregateScore_TextChanged(object sender, EventArgs e)
-        {
-            Int32.TryParse(tbStrBaseScore.Text, out int baseScore);
-            Int32.TryParse(tbStrEnhanceScore.Text, out int enhanceScore);
-            Int32.TryParse(tbStrInherentScore.Text, out int inherentScore);
-            Int32.TryParse(tbStrTempScore.Text, out int tempScore);
-            Int32.TryParse(tbStrPenaltyScore.Text, out int penaltyScore);
-            int total = baseScore + enhanceScore + inherentScore + tempScore - penaltyScore;
-            tbStrAbilityTotal.Text = total.ToString();
-        }
-
-        private void DexterityTotal_TextChanged(object sender, System.EventArgs e)
-        {
-
-            if (Int32.TryParse(tbDexAbilityTotal.Text, out int score))
-            {
-                tbDexAbilityMod.Text = AbilityModifierCalculation(score);
-            }
-        }
-
-        private void DexterityAggregateScore_TextChanged(object sender, EventArgs e)
-        {
-            Int32.TryParse(tbDexBaseScore.Text, out int baseScore);
-            Int32.TryParse(tbDexEnhanceScore.Text, out int enhanceScore);
-            Int32.TryParse(tbDexInherentScore.Text, out int inherentScore);
-            Int32.TryParse(tbDexTempScore.Text, out int tempScore);
-            Int32.TryParse(tbDexPenaltyScore.Text, out int penaltyScore);
-            int total = baseScore + enhanceScore + inherentScore + tempScore - penaltyScore;
-            tbDexAbilityTotal.Text = total.ToString();
-        }
-
-        private void ConstitutionTotal_TextChanged(object sender, System.EventArgs e)
-        {
-
-            if (Int32.TryParse(tbConAbilityTotal.Text, out int score))
-            {
-                tbConAbilityMod.Text = AbilityModifierCalculation(score);
-                UpdateClass1HealthFromLevel();
-                tbCurrentHealth.Text = GetCurrentHealth();
-            }
-        }
-        private void ConstitutionAggregateScore_TextChanged(object sender, EventArgs e)
-        {
-            Int32.TryParse(tbConBaseScore.Text, out int baseScore);
-            Int32.TryParse(tbConEnhanceScore.Text, out int enhanceScore);
-            Int32.TryParse(tbConInherentScore.Text, out int inherentScore);
-            Int32.TryParse(tbConTempScore.Text, out int tempScore);
-            Int32.TryParse(tbConPenaltyScore.Text, out int penaltyScore);
-            int total = baseScore + enhanceScore + inherentScore + tempScore - penaltyScore;
-            tbConAbilityTotal.Text = total.ToString();
-        }
-
-        private string AbilityModifierCalculation(Int32 total)
-        {
-            return Math.Max(-5, (total - 10) / 2).ToString();
-        }
-
-        private string GetCurrentHealthText()
-        {
-            string health = " / ";
-
-            return health;
-        }
-
+        /// <summary>
+        /// Listens for the index to change on the class names dropdown in the class recorder section.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClassNames1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(tbClass1Level.Text))
             {
                 tbClass1Level.Text = "1";
             }
-            ChangeClassStatisticsOnLevelChange(tbClass1Level);
+            ChangeClassStatisticsOnLevelChange();
         }
 
+        // when the class level changes, update the class recorder statistics for that class
         private void Class1Level_TextChanged(object sender, EventArgs e)
         {
-            ChangeClassStatisticsOnLevelChange(tbClass1Level);
+            ChangeClassStatisticsOnLevelChange();
         }
 
-        private void Class2Level_TextChanged(object sender, EventArgs e)
+        //
+        public void ChangeClassStatisticsOnLevelChange()
         {
-            ChangeClassStatisticsOnLevelChange(tbClass3Level);
-        }
+            IPlayableClass playableClass = playableClasses.Find(pc => pc.ClassName.Contains(cbClassNames1.GetItemText(item: cbClassNames1.SelectedItem)));
+            Int32.TryParse(tbClass1Level.Text, out int level);
+            Int32.TryParse(IntelligenceScoreControl.CstmTxt_AbilityModText, out int intMod);
+            Int32.TryParse(ConstitutionScoreControl.CstmTxt_AbilityModText, out int conMod);
 
-        private void Class3Level_TextChanged(object sender, EventArgs e)
-        {
-            ChangeClassStatisticsOnLevelChange(tbClass3Level);
-        }
-
-        public void ChangeClassStatisticsOnLevelChange(TextBox classLevel)
-        {
-            IPlayableClass playableClass = playableClasses.Find(pc => pc.className.Contains(cbClassNames1.GetItemText(item: cbClassNames1.SelectedItem)));
-            Int32.TryParse(classLevel.Text, out int level);
-            Int32.TryParse(tbIntAbilityMod.Text, out int intMod);
-            Int32.TryParse(tbConAbilityMod.Text, out int conMod);
-
-            lblClass1Bab.Text = ScaleCalculations.GetBaseAttack(level, playableClass.baseAttack).ToString();
-            lblClass1Fort.Text = ScaleCalculations.GetSave(level, playableClass.fortitudeScale).ToString();
-            lblClass1Ref.Text = ScaleCalculations.GetSave(level, playableClass.reflexScale).ToString();
-            lblClass1Will.Text = ScaleCalculations.GetSave(level, playableClass.willScale).ToString();
-            lblClass1Skills.Text = (playableClass.skillRanksPerLevel + intMod).ToString();
-            lblClass1HitDice.Text = playableClass.dieType.ToString();
+            lblClass1Bab.Text = ScaleCalculations.GetBaseAttack(level, playableClass.BaseAttack).ToString();
+            lblClass1Fort.Text = ScaleCalculations.GetSave(level, playableClass.FortitudeScale).ToString();
+            lblClass1Ref.Text = ScaleCalculations.GetSave(level, playableClass.ReflexScale).ToString();
+            lblClass1Will.Text = ScaleCalculations.GetSave(level, playableClass.WillScale).ToString();
+            lblClass1Skills.Text = (playableClass.SkillRanksPerLevel + intMod).ToString();
+            lblClass1HitDice.Text = playableClass.DieType.ToString();
             UpdateClass1HealthFromLevel();
-            lblTotalClassLevels.Text = SumClassLevels().ToString();
-            tbCurrentHealth.Text = GetCurrentHealth();
         }
 
+        //calculates the maximum number of hit points possible for selected class and class level
         private void UpdateClass1HealthFromLevel()
         {
-            IPlayableClass playableClass = playableClasses.Find(pc => pc.className.Contains(cbClassNames1.GetItemText(item: cbClassNames1.SelectedItem)));
+            IPlayableClass playableClass = playableClasses.Find(pc => pc.ClassName.Contains(cbClassNames1.GetItemText(item: cbClassNames1.SelectedItem)));
             Int32.TryParse(tbClass1Level.Text, out int level);
-            Int32.TryParse(tbConAbilityMod.Text, out int conMod);
-            lblClass1HealthFromLevel.Text = ((level * playableClass.dieType) + (level * conMod)).ToString();
+            Int32.TryParse(ConstitutionScoreControl.CstmTxt_AbilityModText, out int conMod);
+            lblClass1HealthFromLevel.Text = ((level * playableClass.DieType) + (level * conMod)).ToString();
         }
 
-        private int SumClassLevels()
+        /// <summary>
+        /// The followng Event listeners that update the Ability Modifier text box when the Ability total is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Strength_AbilityScoreChanged(object sender, AbilityScoreChangedEventArgs e)
         {
-            Int32.TryParse(tbClass1Level.Text, out int class1);
-            Int32.TryParse(tbClass2Level.Text, out int class2);
-            Int32.TryParse(tbClass3Level.Text, out int class3);
-            return class1 + class2 + class3;
+            StrengthScoreControl.CstmTxt_AbilityModText = e.ModifierString;
         }
 
-        private string GetCurrentHealth()
+        private void Dexterity_AbilityScoreChanged(object sender, AbilityScoreChangedEventArgs e)
+        {
+            DexterityScoreControl.CstmTxt_AbilityModText = e.ModifierString;
+        }
+
+        private void Constitution_AbilityScoreChanged(object sender, AbilityScoreChangedEventArgs e)
+        {
+            ConstitutionScoreControl.CstmTxt_AbilityModText = e.ModifierString;
+            //updates class health. todo://revamp this to make better use of events
+           if (tbClass1Level.Text != null)
+            {
+                UpdateClass1HealthFromLevel();
+            }
+        }
+
+        private void Intelligence_AbilityScoreChanged(object sender, AbilityScoreChangedEventArgs e)
+        {
+            IntelligenceScoreControl.CstmTxt_AbilityModText = e.ModifierString;
+            IPlayableClass playableClass = playableClasses.Find(pc => pc.ClassName.Contains(cbClassNames1.GetItemText(item: cbClassNames1.SelectedItem)));
+            lblClass1Skills.Text = (playableClass.SkillRanksPerLevel + e.Modifier).ToString();
+        }
+
+        private void Wisdom_AbilityScoreChanged(object sender, AbilityScoreChangedEventArgs e)
+        {
+            WisdomScoreControl.CstmTxt_AbilityModText = e.ModifierString;
+        }
+
+        private void Charisma_AbilityScoreChanged(object sender, AbilityScoreChangedEventArgs e)
+        {
+            CharismaScoreControl.CstmTxt_AbilityModText = e.ModifierString;
+        }
+
+        private void UpdateCurrentHealth(object sender, EventArgs e)
         {
             Int32.TryParse(lblClass1HealthFromLevel.Text, out int class1);
-            Int32.TryParse(lblClass2HealthFromLevel.Text, out int class2);
-            Int32.TryParse(lblClass3HealthFromLevel.Text, out int class3);
-            int totalHealth = class1 + class2 + class3;
-            return " / " + totalHealth;
+            Int32.TryParse(DamageTakenTextBox.Text, out int damageTaken);
+            int totalHealth = class1;
+            int currentHealth = totalHealth - damageTaken;
+            tbCurrentHealth.Text = currentHealth + " / " + totalHealth;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
         }
     }
 }

@@ -9,26 +9,26 @@ namespace CITP280.playerclass
 {
     public class Bard : BaseClass
     {
-        public override string className => "Bard";
+        public override string ClassName => "Bard";
 
-        public override BaseAttackScale baseAttack => BaseAttackScale.THREE_QUARTER;
+        public override BaseAttackScale BaseAttack => BaseAttackScale.THREE_QUARTER;
 
-        public override SavesScale fortitudeScale => SavesScale.POOR;
+        public override SavesScale FortitudeScale => SavesScale.POOR;
 
-        public override SavesScale reflexScale => SavesScale.GOOD;
+        public override SavesScale ReflexScale => SavesScale.GOOD;
 
-        public override SavesScale willScale => SavesScale.GOOD;
+        public override SavesScale WillScale => SavesScale.GOOD;
 
-        public override int skillRanksPerLevel => 6;
+        public override int SkillRanksPerLevel => 6;
 
-        public override int dieType => 8;
+        public override int DieType => 8;
 
         public override List<string> GetClassAbilitiesTableList()
         {
             throw new NotImplementedException();
         }
 
-        public override List<string> getClassSkills()
+        public override List<string> GetClassSkills()
         {
             List<string> skills = new List<string>();
             skills.Add("Acrobatics");

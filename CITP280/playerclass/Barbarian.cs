@@ -6,40 +6,42 @@ namespace CITP280.playerclass
 {
     public class Barbarian : BaseClass
     {
-        public override string className => "Barbarian";
+        public override string ClassName => "Barbarian";
 
-        public override BaseAttackScale baseAttack => BaseAttackScale.FULL;
+        public override BaseAttackScale BaseAttack => BaseAttackScale.FULL;
 
-        public override SavesScale fortitudeScale => SavesScale.GOOD;
+        public override SavesScale FortitudeScale => SavesScale.GOOD;
 
-        public override SavesScale reflexScale => SavesScale.POOR;
+        public override SavesScale ReflexScale => SavesScale.POOR;
 
-        public override SavesScale willScale => SavesScale.POOR;
+        public override SavesScale WillScale => SavesScale.POOR;
 
-        public override int skillRanksPerLevel => 4;
+        public override int SkillRanksPerLevel => 4;
 
-        public override int dieType => 12;
+        public override int DieType => 12;
 
-        public override List<string> getClassSkills()
+        public override List<string> GetClassSkills()
         {
-            List<string> skills = new List<string>();
-            skills.Add("Acrobatics");
-            skills.Add("Climb");
-            skills.Add("Craft");
-            skills.Add("Handle Animal");
-            skills.Add("Intimidate");
-            skills.Add("Knowledge (Nature)");
-            skills.Add("Perception");
-            skills.Add("Ride");
-            skills.Add("Survival");
-            skills.Add("Swim");
+            List<string> skills = new List<string>
+            {
+                "Acrobatics",
+                "Climb",
+                "Craft",
+                "Handle Animal",
+                "Intimidate",
+                "Knowledge (Nature)",
+                "Perception",
+                "Ride",
+                "Survival",
+                "Swim"
+            };
             return skills;
         }
 
         public override List<string> GetClassAbilitiesTableList()
         {
             List<string> abilities = new List<string>();
-            for (int i = 1; i <= maxLevel; i++)
+            for (int i = 1; i <= MaxLevel; i++)
             {
                 List<string> abilityRow = new List<string>();
                 if (!string.IsNullOrEmpty(GetDescription(i, FastMovement().classTableDescription)))
@@ -75,9 +77,11 @@ namespace CITP280.playerclass
 
         public CharacterAbility WeaponAndArmorProficiency()
         {
-            CharacterAbility ability = new CharacterAbility();
-            ability.name = "Weapon and Armor Proficiency";
-            ability.description = "A barbarian is proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields).";
+            CharacterAbility ability = new CharacterAbility
+            {
+                name = "Weapon and Armor Proficiency",
+                description = "A barbarian is proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields)."
+            };
             //this ability does not typically display in the class summary table
             return ability;
         }
@@ -100,9 +104,10 @@ namespace CITP280.playerclass
 
         public CharacterAbility Rage()
         {
-            CharacterAbility ability = new CharacterAbility();
-            ability.name = "Rage";
-            ability.description = "A barbarian can call upon inner reserves of strength and ferocity, granting her additional combat prowess. " +
+            CharacterAbility ability = new CharacterAbility
+            {
+                name = "Rage",
+                description = "A barbarian can call upon inner reserves of strength and ferocity, granting her additional combat prowess. " +
                 "Starting at 1st level, a barbarian can rage for a number of rounds per day equal to 4 + her Constitution modifier. " +
                 "At each level after 1st, she can rage for 2 additional rounds. " +
                 "Temporary increases to Constitution, such as those gained from rage and spells like bear’s endurance, do not increase the total number of rounds that a barbarian can rage per day. " +
@@ -112,25 +117,28 @@ namespace CITP280.playerclass
                 "While in rage, a barbarian cannot use any Charisma-, Dexterity -, or Intelligence-based skills(except Acrobatics, Fly, Intimidate, and Ride) or any ability that requires patience or concentration." +
                 "\n\nA barbarian can end her rage as a free action and is fatigued after rage for a number of rounds equal to 2 times the number of rounds spent in the rage.\n\n" +
                 "A barbarian cannot enter a new rage while fatigued or exhausted but can otherwise enter rage multiple times during a single encounter or combat. " +
-                "If a barbarian falls unconscious, her rage immediately ends, placing her in peril of death.";
-            //displayed on the table only at level 1
-            ability.classTableDescription = new Dictionary<int, String>();
+                "If a barbarian falls unconscious, her rage immediately ends, placing her in peril of death.",
+                //displayed on the table only at level 1
+                classTableDescription = new Dictionary<int, String>()
+            };
             ability.classTableDescription.Add(1, "Rage");
             return ability;
         }
 
         public CharacterAbility RagePower()
         {
-            CharacterAbility ability = new CharacterAbility();
-            ability.name = "Rage Power";
-            ability.description = "A barbarian’s land speed is faster than the norm for her race by +10 feet. " +
+            CharacterAbility ability = new CharacterAbility
+            {
+                name = "Rage Power",
+                description = "A barbarian’s land speed is faster than the norm for her race by +10 feet. " +
                 "This benefit applies only when he is wearing no armor, light armor, or medium armor, and not carrying a heavy load." +
                 " Apply this bonus before modifying the barbarian’s speed because of any load carried or armor worn. " +
-                "This bonus stacks with any other bonuses to the barbarian’s land speed.";
+                "This bonus stacks with any other bonuses to the barbarian’s land speed.",
 
-            ability.classTableDescription = new Dictionary<int, String>();
+                classTableDescription = new Dictionary<int, String>()
+            };
             //display on the table at even levels
-            for (int i = 0; i < maxLevel; i++)
+            for (int i = 0; i < MaxLevel; i++)
             {
                 if (i % 2 == 0)
                 {
@@ -143,13 +151,15 @@ namespace CITP280.playerclass
 
         public CharacterAbility TrapSense()
         {
-            CharacterAbility ability = new CharacterAbility();
-            ability.name = "Trap Sense";
-            ability.description = "Some description about trap sense";
+            CharacterAbility ability = new CharacterAbility
+            {
+                name = "Trap Sense",
+                description = "Some description about trap sense",
 
-            ability.classTableDescription = new Dictionary<int, String>();
+                classTableDescription = new Dictionary<int, String>()
+            };
             //display on the table every 3rd level.
-            for (int i = 0; i < maxLevel; i++)
+            for (int i = 0; i < MaxLevel; i++)
             {
                 if (i % 3 == 0)
                 {

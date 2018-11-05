@@ -9,41 +9,43 @@ namespace CITP280.playerclass
 {
     public class Cleric : BaseClass
     {
-        public override string className => "Cleric";
+        public override string ClassName => "Cleric";
 
-        public override int skillRanksPerLevel => 2;
+        public override int SkillRanksPerLevel => 2;
 
-        public override int dieType => 8;
+        public override int DieType => 8;
 
-        public override SavesScale fortitudeScale => SavesScale.GOOD;
+        public override SavesScale FortitudeScale => SavesScale.GOOD;
 
-        public override SavesScale reflexScale => SavesScale.POOR;
+        public override SavesScale ReflexScale => SavesScale.POOR;
 
-        public override SavesScale willScale => SavesScale.GOOD;
+        public override SavesScale WillScale => SavesScale.GOOD;
 
-        public override BaseAttackScale baseAttack => BaseAttackScale.THREE_QUARTER;
+        public override BaseAttackScale BaseAttack => BaseAttackScale.THREE_QUARTER;
 
         public override List<string> GetClassAbilitiesTableList()
         {
             throw new NotImplementedException();
         }
 
-        public override List<string> getClassSkills()
+        public override List<string> GetClassSkills()
         {
-            List<string> skills = new List<string>();
-            skills.Add("Appraise");
-            skills.Add("Craft");
-            skills.Add("Diplomacy");
-            skills.Add("Heal");
-            skills.Add("Knowledge (Arcana)");
-            skills.Add("Knowledge (History)");
-            skills.Add("Knowledge (Nobility)");
-            skills.Add("Knowledge (Planes)");
-            skills.Add("Knowledge (Religion)");
-            skills.Add("Linguistics");
-            skills.Add("Profession");
-            skills.Add("Sense Motive");
-            skills.Add("Spellcraft");
+            List<string> skills = new List<string>
+            {
+                "Appraise",
+                "Craft",
+                "Diplomacy",
+                "Heal",
+                "Knowledge (Arcana)",
+                "Knowledge (History)",
+                "Knowledge (Nobility)",
+                "Knowledge (Planes)",
+                "Knowledge (Religion)",
+                "Linguistics",
+                "Profession",
+                "Sense Motive",
+                "Spellcraft"
+            };
             return skills;
         }
 

@@ -11,17 +11,17 @@ namespace CITP280.playerclass
     //base class for most playable classes. child tables will have distinct features in phase 2.
     public abstract class BaseClass : IPlayableClass
     {
-        public ClassTypes classType => ClassTypes.BASE;
-        public abstract string className { get; }
-        public abstract BaseAttackScale baseAttack { get; }
-        public abstract SavesScale fortitudeScale { get; }
-        public abstract SavesScale reflexScale { get; }
-        public abstract SavesScale willScale { get; }
-        public abstract int skillRanksPerLevel { get; }
-        public abstract int dieType { get; }
-        public int maxLevel => 20;
+        public ClassTypes ClassType => ClassTypes.BASE;
+        public abstract string ClassName { get; }
+        public abstract BaseAttackScale BaseAttack { get; }
+        public abstract SavesScale FortitudeScale { get; }
+        public abstract SavesScale ReflexScale { get; }
+        public abstract SavesScale WillScale { get; }
+        public abstract int SkillRanksPerLevel { get; }
+        public abstract int DieType { get; }
+        public int MaxLevel => 20;
         
-        public abstract List<string> getClassSkills();
+        public abstract List<string> GetClassSkills();
         public abstract List<string> GetClassAbilitiesTableList();
         
         public DataTable ClassDatatableView()
@@ -30,17 +30,17 @@ namespace CITP280.playerclass
             //create data table to represent class summary table.
             DataTable table = new DataTable();
             ClassDataTableColumns().ForEach(column => table.Columns.Add(column));
-            if (GetClassAbilitiesTableList().Count == maxLevel)
+            if (GetClassAbilitiesTableList().Count == MaxLevel)
             {
-                for (int i = 1; i <= maxLevel; i++)
+                for (int i = 1; i <= MaxLevel; i++)
                 {
                     DataRow classRow = table.NewRow();
-                    int bab = ScaleCalculations.GetBaseAttack(i, baseAttack);
+                    int bab = ScaleCalculations.GetBaseAttack(i, BaseAttack);
                     classRow[0] = i.ToString(); //level
                     classRow[1] = ScaleCalculations.GetFormattedBaseAttackBonus(bab); // base attack bonus
-                    classRow[2] = "+" + ScaleCalculations.GetSave(i, fortitudeScale); // fortitude save
-                    classRow[3] = "+" + ScaleCalculations.GetSave(i, reflexScale); // reflex save
-                    classRow[4] = "+" + ScaleCalculations.GetSave(i, willScale); // will save
+                    classRow[2] = "+" + ScaleCalculations.GetSave(i, FortitudeScale); // fortitude save
+                    classRow[3] = "+" + ScaleCalculations.GetSave(i, ReflexScale); // reflex save
+                    classRow[4] = "+" + ScaleCalculations.GetSave(i, WillScale); // will save
                     classRow[5] = GetClassAbilitiesTableList().ElementAt(i - 1) ?? ""; // special ability description for particular level
                     table.Rows.Add(classRow);
                 }
@@ -55,13 +55,15 @@ namespace CITP280.playerclass
 
         public virtual List<String> ClassDataTableColumns()
         {
-            List<String> columns = new List<String>();
-            columns.Add("Level");
-            columns.Add("Base Attack Bonus");
-            columns.Add("Fort Save");
-            columns.Add("Ref Save");
-            columns.Add("Will Save");
-            columns.Add("Special");
+            List<String> columns = new List<String>
+            {
+                "Level",
+                "Base Attack Bonus",
+                "Fort Save",
+                "Ref Save",
+                "Will Save",
+                "Special"
+            };
             return columns;
         }
 

@@ -14,11 +14,12 @@ namespace CITP280
         public Form1() => InitializeComponent();
 
         //instantiate the list of playable classes.
-        //in phase 2 each class will have more distinct behaviors.
         internal List<IPlayableClass> PlayableClasses {
             get {
-                playableClasses = new List<IPlayableClass>();
-                playableClasses.Add(new Barbarian());
+                playableClasses = new List<IPlayableClass>
+                {
+                    new Barbarian()
+                };
                 //playableClasses.Add(new Bard());
                 //playableClasses.Add(new Cleric());
                 //playableClasses.Add(new Fighter());
@@ -34,7 +35,7 @@ namespace CITP280
             //put list of playable classes into the class names drop down.
             foreach (IPlayableClass playable in PlayableClasses)
             {
-                cbClassNames.Items.Add(playable.className);
+                cbClassNames.Items.Add(playable.ClassName);
             }
             //default the dropdown to the first item in the list so that there's something to display on the screen.
             cbClassNames.SelectedIndex = 0;
@@ -44,17 +45,17 @@ namespace CITP280
         private void ClassNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             //find the Playable Class by name
-            IPlayableClass playableClass = playableClasses.Find(pc => pc.className.Contains(cbClassNames.GetItemText(item: cbClassNames.SelectedItem)));
+            IPlayableClass playableClass = playableClasses.Find(pc => pc.ClassName.Contains(cbClassNames.GetItemText(item: cbClassNames.SelectedItem)));
             //use information about the class to load it into the DataGridView to display statistics on the class by level.
             LoadClassTable(playableClass);
 
 
             //display the type of dice used to determine health of the character
-            lbHitDieType.Text = "d" + playableClass.dieType;
+            lbHitDieType.Text = "d" + playableClass.DieType;
             //display the number of of skill points the player should spend each level
-            lbSkillsPerLevel.Text = playableClass.skillRanksPerLevel + " + INT";
+            lbSkillsPerLevel.Text = playableClass.SkillRanksPerLevel + " + INT";
             //display comma delimited list of skills the player can use.
-            lbClassSkillsList.Text = string.Join(", ", playableClass.getClassSkills());
+            lbClassSkillsList.Text = string.Join(", ", playableClass.GetClassSkills());
 
         }
 
@@ -77,9 +78,5 @@ namespace CITP280
             dgClassTableView.Columns[specialIndex].Width = 200;
         }
 
-        private void ClassSkillsList_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
