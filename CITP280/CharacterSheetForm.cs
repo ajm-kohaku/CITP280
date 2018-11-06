@@ -251,7 +251,7 @@ namespace CITP280
                 PenaltyScore = intelligencePenaltyScore
             };
 
-            characterSheet.Wistom = new AbilityData()
+            characterSheet.Wisdom = new AbilityData()
             {
                 AbilityName = CoreAttributes.WISDOM,
                 BaseScore = wisdomBaseScore,
