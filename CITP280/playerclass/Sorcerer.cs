@@ -22,25 +22,6 @@ namespace CITP280.playerclass
         public override int SkillRanksPerLevel => 2;
 
         public override int DieType => 6;
-
-        public override List<string> GetClassAbilitiesTableList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<string> GetClassSkills()
-        {
-            List<string> skills = new List<string>();
-            skills.Add("Appraise");
-            skills.Add("Bluff");
-            skills.Add("Craft");
-            skills.Add("Fly");
-            skills.Add("Intimidate");
-            skills.Add("Knowledge (Arcana)");
-            skills.Add("Profession");
-            skills.Add("Spellcraft");
-            skills.Add("Use Magical Device");
-            return skills;
-        }
+        
     }
 }

@@ -51,7 +51,6 @@
             this.label52 = new System.Windows.Forms.Label();
             this.lblClass1HitDice = new System.Windows.Forms.Label();
             this.cbClassNames1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblClass1Bab = new System.Windows.Forms.Label();
             this.lblClass1Fort = new System.Windows.Forms.Label();
             this.lblClass1Will = new System.Windows.Forms.Label();
@@ -80,6 +79,9 @@
             this.IntelligenceScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.WisdomScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.CharismaScoreControl = new CITP280.AbilityScoreCalculationControl();
+            this.SaveSheetButton = new System.Windows.Forms.Button();
+            this.ReadFileButton = new System.Windows.Forms.Button();
+            this.characterSheetRichText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lblAbilitiesSection
@@ -358,23 +360,12 @@
             this.cbClassNames1.TabIndex = 109;
             this.cbClassNames1.SelectedIndexChanged += new System.EventHandler(this.ClassNames1_SelectedIndexChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(932, 49);
-            this.button1.Margin = new System.Windows.Forms.Padding(1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 21);
-            this.button1.TabIndex = 112;
-            this.button1.Text = "View";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // lblClass1Bab
             // 
             this.lblClass1Bab.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblClass1Bab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClass1Bab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClass1Bab.Location = new System.Drawing.Point(974, 50);
+            this.lblClass1Bab.Location = new System.Drawing.Point(936, 50);
             this.lblClass1Bab.Margin = new System.Windows.Forms.Padding(1, 1, 0, 1);
             this.lblClass1Bab.Name = "lblClass1Bab";
             this.lblClass1Bab.Size = new System.Drawing.Size(21, 20);
@@ -386,7 +377,7 @@
             this.lblClass1Fort.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblClass1Fort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClass1Fort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClass1Fort.Location = new System.Drawing.Point(995, 50);
+            this.lblClass1Fort.Location = new System.Drawing.Point(957, 50);
             this.lblClass1Fort.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.lblClass1Fort.Name = "lblClass1Fort";
             this.lblClass1Fort.Size = new System.Drawing.Size(21, 20);
@@ -398,7 +389,7 @@
             this.lblClass1Will.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblClass1Will.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClass1Will.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClass1Will.Location = new System.Drawing.Point(1037, 50);
+            this.lblClass1Will.Location = new System.Drawing.Point(999, 50);
             this.lblClass1Will.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.lblClass1Will.Name = "lblClass1Will";
             this.lblClass1Will.Size = new System.Drawing.Size(21, 20);
@@ -410,7 +401,7 @@
             this.lblClass1Ref.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblClass1Ref.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClass1Ref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClass1Ref.Location = new System.Drawing.Point(1016, 50);
+            this.lblClass1Ref.Location = new System.Drawing.Point(978, 50);
             this.lblClass1Ref.Margin = new System.Windows.Forms.Padding(1, 1, 0, 1);
             this.lblClass1Ref.Name = "lblClass1Ref";
             this.lblClass1Ref.Size = new System.Drawing.Size(21, 20);
@@ -422,7 +413,7 @@
             this.lblClass1Skills.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblClass1Skills.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClass1Skills.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClass1Skills.Location = new System.Drawing.Point(1058, 50);
+            this.lblClass1Skills.Location = new System.Drawing.Point(1020, 50);
             this.lblClass1Skills.Margin = new System.Windows.Forms.Padding(1, 1, 0, 1);
             this.lblClass1Skills.Name = "lblClass1Skills";
             this.lblClass1Skills.Size = new System.Drawing.Size(21, 20);
@@ -431,7 +422,7 @@
             // 
             // tbClass1FavoredClassSkills
             // 
-            this.tbClass1FavoredClassSkills.Location = new System.Drawing.Point(1079, 50);
+            this.tbClass1FavoredClassSkills.Location = new System.Drawing.Point(1041, 50);
             this.tbClass1FavoredClassSkills.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.tbClass1FavoredClassSkills.Name = "tbClass1FavoredClassSkills";
             this.tbClass1FavoredClassSkills.Size = new System.Drawing.Size(21, 20);
@@ -439,7 +430,7 @@
             // 
             // tbClass1FavoredClassHitPoints
             // 
-            this.tbClass1FavoredClassHitPoints.Location = new System.Drawing.Point(1100, 50);
+            this.tbClass1FavoredClassHitPoints.Location = new System.Drawing.Point(1062, 50);
             this.tbClass1FavoredClassHitPoints.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.tbClass1FavoredClassHitPoints.Name = "tbClass1FavoredClassHitPoints";
             this.tbClass1FavoredClassHitPoints.Size = new System.Drawing.Size(21, 20);
@@ -447,7 +438,7 @@
             // 
             // tbClass1Level
             // 
-            this.tbClass1Level.Location = new System.Drawing.Point(1141, 50);
+            this.tbClass1Level.Location = new System.Drawing.Point(1103, 50);
             this.tbClass1Level.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.tbClass1Level.Name = "tbClass1Level";
             this.tbClass1Level.Size = new System.Drawing.Size(21, 20);
@@ -456,7 +447,7 @@
             // 
             // tbClass1FavoredClassOther
             // 
-            this.tbClass1FavoredClassOther.Location = new System.Drawing.Point(1120, 50);
+            this.tbClass1FavoredClassOther.Location = new System.Drawing.Point(1082, 50);
             this.tbClass1FavoredClassOther.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.tbClass1FavoredClassOther.Name = "tbClass1FavoredClassOther";
             this.tbClass1FavoredClassOther.Size = new System.Drawing.Size(21, 20);
@@ -491,7 +482,7 @@
             this.label72.AutoSize = true;
             this.label72.BackColor = System.Drawing.Color.Transparent;
             this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label72.Location = new System.Drawing.Point(993, 40);
+            this.label72.Location = new System.Drawing.Point(955, 40);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(16, 7);
@@ -504,7 +495,7 @@
             this.label71.AutoSize = true;
             this.label71.BackColor = System.Drawing.Color.Transparent;
             this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label71.Location = new System.Drawing.Point(973, 40);
+            this.label71.Location = new System.Drawing.Point(935, 40);
             this.label71.Margin = new System.Windows.Forms.Padding(0);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(19, 7);
@@ -517,7 +508,7 @@
             this.label73.AutoSize = true;
             this.label73.BackColor = System.Drawing.Color.Transparent;
             this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label73.Location = new System.Drawing.Point(1015, 40);
+            this.label73.Location = new System.Drawing.Point(977, 40);
             this.label73.Margin = new System.Windows.Forms.Padding(0);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(15, 7);
@@ -530,7 +521,7 @@
             this.label74.AutoSize = true;
             this.label74.BackColor = System.Drawing.Color.Transparent;
             this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label74.Location = new System.Drawing.Point(1035, 40);
+            this.label74.Location = new System.Drawing.Point(997, 40);
             this.label74.Margin = new System.Windows.Forms.Padding(0);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(17, 7);
@@ -543,7 +534,7 @@
             this.label75.AutoSize = true;
             this.label75.BackColor = System.Drawing.Color.Transparent;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label75.Location = new System.Drawing.Point(1098, 40);
+            this.label75.Location = new System.Drawing.Point(1060, 40);
             this.label75.Margin = new System.Windows.Forms.Padding(0);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(20, 7);
@@ -556,7 +547,7 @@
             this.label76.AutoSize = true;
             this.label76.BackColor = System.Drawing.Color.Transparent;
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label76.Location = new System.Drawing.Point(1118, 40);
+            this.label76.Location = new System.Drawing.Point(1080, 40);
             this.label76.Margin = new System.Windows.Forms.Padding(0);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(20, 7);
@@ -569,7 +560,7 @@
             this.label77.AutoSize = true;
             this.label77.BackColor = System.Drawing.Color.Transparent;
             this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label77.Location = new System.Drawing.Point(1056, 40);
+            this.label77.Location = new System.Drawing.Point(1018, 40);
             this.label77.Margin = new System.Windows.Forms.Padding(0);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(23, 7);
@@ -582,7 +573,7 @@
             this.label79.AutoSize = true;
             this.label79.BackColor = System.Drawing.Color.Transparent;
             this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label79.Location = new System.Drawing.Point(1140, 40);
+            this.label79.Location = new System.Drawing.Point(1102, 40);
             this.label79.Margin = new System.Windows.Forms.Padding(0);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(22, 7);
@@ -595,7 +586,7 @@
             this.label78.AutoSize = true;
             this.label78.BackColor = System.Drawing.Color.Transparent;
             this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
-            this.label78.Location = new System.Drawing.Point(1077, 40);
+            this.label78.Location = new System.Drawing.Point(1039, 40);
             this.label78.Margin = new System.Windows.Forms.Padding(0);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(20, 7);
@@ -720,12 +711,44 @@
             this.CharismaScoreControl.Size = new System.Drawing.Size(389, 32);
             this.CharismaScoreControl.TabIndex = 239;
             // 
+            // SaveSheetButton
+            // 
+            this.SaveSheetButton.Location = new System.Drawing.Point(735, 97);
+            this.SaveSheetButton.Name = "SaveSheetButton";
+            this.SaveSheetButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveSheetButton.TabIndex = 241;
+            this.SaveSheetButton.Text = "Save Sheet";
+            this.SaveSheetButton.UseVisualStyleBackColor = true;
+            this.SaveSheetButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // ReadFileButton
+            // 
+            this.ReadFileButton.Location = new System.Drawing.Point(1127, 97);
+            this.ReadFileButton.Name = "ReadFileButton";
+            this.ReadFileButton.Size = new System.Drawing.Size(75, 23);
+            this.ReadFileButton.TabIndex = 242;
+            this.ReadFileButton.Text = "Read File";
+            this.ReadFileButton.UseVisualStyleBackColor = true;
+            this.ReadFileButton.Click += new System.EventHandler(this.ReadFileButton_Click);
+            // 
+            // characterSheetRichText
+            // 
+            this.characterSheetRichText.Location = new System.Drawing.Point(735, 121);
+            this.characterSheetRichText.Name = "characterSheetRichText";
+            this.characterSheetRichText.ReadOnly = true;
+            this.characterSheetRichText.Size = new System.Drawing.Size(467, 496);
+            this.characterSheetRichText.TabIndex = 243;
+            this.characterSheetRichText.Text = "";
+            // 
             // CharacterSheetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(1239, 643);
+            this.Controls.Add(this.characterSheetRichText);
+            this.Controls.Add(this.ReadFileButton);
+            this.Controls.Add(this.SaveSheetButton);
             this.Controls.Add(this.CharismaScoreControl);
             this.Controls.Add(this.WisdomScoreControl);
             this.Controls.Add(this.IntelligenceScoreControl);
@@ -753,7 +776,6 @@
             this.Controls.Add(this.lblClass1Ref);
             this.Controls.Add(this.lblClass1Fort);
             this.Controls.Add(this.lblClass1Bab);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbClassNames1);
             this.Controls.Add(this.label52);
             this.Controls.Add(this.lblClass1HitDice);
@@ -810,7 +832,6 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label lblClass1HitDice;
         private System.Windows.Forms.ComboBox cbClassNames1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblClass1Bab;
         private System.Windows.Forms.Label lblClass1Fort;
         private System.Windows.Forms.Label lblClass1Will;
@@ -839,5 +860,8 @@
         private AbilityScoreCalculationControl IntelligenceScoreControl;
         private AbilityScoreCalculationControl WisdomScoreControl;
         private AbilityScoreCalculationControl CharismaScoreControl;
+        private System.Windows.Forms.Button SaveSheetButton;
+        private System.Windows.Forms.Button ReadFileButton;
+        private System.Windows.Forms.RichTextBox characterSheetRichText;
     }
 }

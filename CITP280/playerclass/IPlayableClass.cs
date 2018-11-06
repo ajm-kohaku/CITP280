@@ -23,8 +23,5 @@ namespace CITP280.playerclass
         int SkillRanksPerLevel { get; }
         int DieType { get; }
         int MaxLevel { get; }
-
-        List<string> GetClassSkills();
-        DataTable ClassDatatableView();
     }
 }

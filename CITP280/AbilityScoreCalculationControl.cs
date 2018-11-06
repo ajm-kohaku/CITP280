@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CITP280.util;
+using System;
 using System.Windows.Forms;
-using CITP280.util;
 
 namespace CITP280
 {
@@ -53,7 +46,7 @@ namespace CITP280
             get => InherentScoreTextBox.Text;
             set => InherentScoreTextBox.Text = value;
         }
-        
+
         public string CstmTxt_TempScoreText {
             get => TempScoreTextBox.Text;
             set => TempScoreTextBox.Text = value;
@@ -64,17 +57,17 @@ namespace CITP280
             set => PenaltyScoreTextBox.Text = value;
         }
 
-       
+
         //creating delagate for tracking an ability score change event.
         public delegate void AbilityScoreChangedEventHandler(object sender, AbilityScoreChangedEventArgs e);
         //the ability score change event
         public event AbilityScoreChangedEventHandler AbilityScoreChanged;
 
-        
+
         public AbilityScoreCalculationControl()
         {
             InitializeComponent();
-            
+
         }
 
         /// <summary>
@@ -96,7 +89,7 @@ namespace CITP280
             if (AbilityScoreChanged != null)
             {
                 e.ModifierString = AbilityModifierCalculation(e.Score);
-                AbilityScoreChanged(this,e);
+                AbilityScoreChanged(this, e);
             }
         }
 
@@ -108,7 +101,7 @@ namespace CITP280
             Int32.TryParse(AbilityTotalTextBox.Text, out int score);
             AbilityScoreChangedEventArgs args = new AbilityScoreChangedEventArgs() { Score = score };
             OnAbilityScoreChanged(args);
-            
+
         }
 
         /// <summary>
@@ -120,7 +113,23 @@ namespace CITP280
             Int32.TryParse(EnhancementScoreTextBox.Text, out int enhanceScore);
             Int32.TryParse(InherentScoreTextBox.Text, out int inherentScore);
             Int32.TryParse(TempScoreTextBox.Text, out int tempScore);
-            Int32.TryParse(PenaltyScoreTextBox.Text, out int penaltyScore);
+            Int32.TryParse(PenaltyScoreTextBox.Text, out int penaltyScore1);
+            int penaltyScore = 0;
+            
+            //if the penalty text is not empty, check if it's a number, otherwise do nothing. //todo: make this check common for all score text boxes
+            try
+            {
+                if (PenaltyScoreTextBox.Text.Length > 0)
+                {
+                    penaltyScore = Int32.Parse(PenaltyScoreTextBox.Text);
+                }
+            }
+            catch (FormatException ex)
+            {
+
+                MessageBox.Show("Penalty Score is an invalid number. Please correct and try again");
+
+            }
             int total = baseScore + enhanceScore + inherentScore + tempScore - penaltyScore;
             AbilityTotalTextBox.Text = total.ToString();
         }

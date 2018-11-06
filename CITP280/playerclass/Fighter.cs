@@ -23,25 +23,6 @@ namespace CITP280.playerclass
 
         public override int DieType => 10;
 
-        public override List<string> GetClassAbilitiesTableList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<string> GetClassSkills()
-        {
-            List<string> skills = new List<string>();
-            skills.Add("Climb");
-            skills.Add("Craft");
-            skills.Add("Handle Animal");
-            skills.Add("Intimidate");
-            skills.Add("Knowledge (Dungeoneering)");
-            skills.Add("Knowledge (Engineering)");
-            skills.Add("Profession");
-            skills.Add("Ride");
-            skills.Add("Survival");
-            skills.Add("Swim");
-            return skills;
-        }
+    
     }
 }

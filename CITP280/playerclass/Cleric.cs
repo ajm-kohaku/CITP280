@@ -23,31 +23,6 @@ namespace CITP280.playerclass
 
         public override BaseAttackScale BaseAttack => BaseAttackScale.THREE_QUARTER;
 
-        public override List<string> GetClassAbilitiesTableList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<string> GetClassSkills()
-        {
-            List<string> skills = new List<string>
-            {
-                "Appraise",
-                "Craft",
-                "Diplomacy",
-                "Heal",
-                "Knowledge (Arcana)",
-                "Knowledge (History)",
-                "Knowledge (Nobility)",
-                "Knowledge (Planes)",
-                "Knowledge (Religion)",
-                "Linguistics",
-                "Profession",
-                "Sense Motive",
-                "Spellcraft"
-            };
-            return skills;
-        }
-
+     
     }
 }
