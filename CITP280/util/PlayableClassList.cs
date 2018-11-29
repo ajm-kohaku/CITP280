@@ -15,11 +15,6 @@ namespace CITP280.util
     /// <typeparam name="T"> accepts generic class of type BaseClass</typeparam>
     public class PlayableClassList<T> where T: BaseClass
     {
-        public string ClassName(T playableClass)
-        {
-            return playableClass.ClassName;
-        }
-
         /// <summary>
         /// Adds player class to the combobox
         /// </summary>

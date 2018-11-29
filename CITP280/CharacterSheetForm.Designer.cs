@@ -73,15 +73,16 @@
             this.label78 = new System.Windows.Forms.Label();
             this.textBox38 = new System.Windows.Forms.TextBox();
             this.tbCurrentHealth = new System.Windows.Forms.TextBox();
-            this.StrengthScoreControl = new CITP280.AbilityScoreCalculationControl();
-            this.DexterityScoreControl = new CITP280.AbilityScoreCalculationControl();
-            this.ConstitutionScoreControl = new CITP280.AbilityScoreCalculationControl();
-            this.IntelligenceScoreControl = new CITP280.AbilityScoreCalculationControl();
-            this.WisdomScoreControl = new CITP280.AbilityScoreCalculationControl();
-            this.CharismaScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.SaveSheetButton = new System.Windows.Forms.Button();
             this.ReadFileButton = new System.Windows.Forms.Button();
             this.characterSheetRichText = new System.Windows.Forms.RichTextBox();
+            this.savedFileTimestamp = new System.Windows.Forms.Label();
+            this.CharismaScoreControl = new CITP280.AbilityScoreCalculationControl();
+            this.WisdomScoreControl = new CITP280.AbilityScoreCalculationControl();
+            this.IntelligenceScoreControl = new CITP280.AbilityScoreCalculationControl();
+            this.ConstitutionScoreControl = new CITP280.AbilityScoreCalculationControl();
+            this.DexterityScoreControl = new CITP280.AbilityScoreCalculationControl();
+            this.StrengthScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.SuspendLayout();
             // 
             // lblAbilitiesSection
@@ -621,96 +622,6 @@
             this.tbCurrentHealth.Text = " / ";
             this.tbCurrentHealth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // StrengthScoreControl
-            // 
-            this.StrengthScoreControl.CstmTxt_AbilityAbbrvLabelText = "STR";
-            this.StrengthScoreControl.CstmTxt_AbilityModText = "-5";
-            this.StrengthScoreControl.CstmTxt_AbilityTotalText = "0";
-            this.StrengthScoreControl.CstmTxt_BaseAbilityScoreText = "";
-            this.StrengthScoreControl.CstmTxt_EnhancementScoreText = "";
-            this.StrengthScoreControl.CstmTxt_InherentScoreText = "";
-            this.StrengthScoreControl.CstmTxt_PenaltyScoreText = "";
-            this.StrengthScoreControl.CstmTxt_TempScoreText = "";
-            this.StrengthScoreControl.Location = new System.Drawing.Point(17, 53);
-            this.StrengthScoreControl.Name = "StrengthScoreControl";
-            this.StrengthScoreControl.Size = new System.Drawing.Size(389, 32);
-            this.StrengthScoreControl.TabIndex = 234;
-            // 
-            // DexterityScoreControl
-            // 
-            this.DexterityScoreControl.CstmTxt_AbilityAbbrvLabelText = "DEX";
-            this.DexterityScoreControl.CstmTxt_AbilityModText = "-5";
-            this.DexterityScoreControl.CstmTxt_AbilityTotalText = "0";
-            this.DexterityScoreControl.CstmTxt_BaseAbilityScoreText = "";
-            this.DexterityScoreControl.CstmTxt_EnhancementScoreText = "";
-            this.DexterityScoreControl.CstmTxt_InherentScoreText = "";
-            this.DexterityScoreControl.CstmTxt_PenaltyScoreText = "";
-            this.DexterityScoreControl.CstmTxt_TempScoreText = "";
-            this.DexterityScoreControl.Location = new System.Drawing.Point(17, 83);
-            this.DexterityScoreControl.Name = "DexterityScoreControl";
-            this.DexterityScoreControl.Size = new System.Drawing.Size(389, 32);
-            this.DexterityScoreControl.TabIndex = 235;
-            // 
-            // ConstitutionScoreControl
-            // 
-            this.ConstitutionScoreControl.CstmTxt_AbilityAbbrvLabelText = "CON";
-            this.ConstitutionScoreControl.CstmTxt_AbilityModText = "-5";
-            this.ConstitutionScoreControl.CstmTxt_AbilityTotalText = "0";
-            this.ConstitutionScoreControl.CstmTxt_BaseAbilityScoreText = "";
-            this.ConstitutionScoreControl.CstmTxt_EnhancementScoreText = "";
-            this.ConstitutionScoreControl.CstmTxt_InherentScoreText = "";
-            this.ConstitutionScoreControl.CstmTxt_PenaltyScoreText = "";
-            this.ConstitutionScoreControl.CstmTxt_TempScoreText = "";
-            this.ConstitutionScoreControl.Location = new System.Drawing.Point(17, 110);
-            this.ConstitutionScoreControl.Name = "ConstitutionScoreControl";
-            this.ConstitutionScoreControl.Size = new System.Drawing.Size(389, 32);
-            this.ConstitutionScoreControl.TabIndex = 236;
-            // 
-            // IntelligenceScoreControl
-            // 
-            this.IntelligenceScoreControl.CstmTxt_AbilityAbbrvLabelText = "INT";
-            this.IntelligenceScoreControl.CstmTxt_AbilityModText = "-5";
-            this.IntelligenceScoreControl.CstmTxt_AbilityTotalText = "0";
-            this.IntelligenceScoreControl.CstmTxt_BaseAbilityScoreText = "";
-            this.IntelligenceScoreControl.CstmTxt_EnhancementScoreText = "";
-            this.IntelligenceScoreControl.CstmTxt_InherentScoreText = "";
-            this.IntelligenceScoreControl.CstmTxt_PenaltyScoreText = "";
-            this.IntelligenceScoreControl.CstmTxt_TempScoreText = "";
-            this.IntelligenceScoreControl.Location = new System.Drawing.Point(17, 138);
-            this.IntelligenceScoreControl.Name = "IntelligenceScoreControl";
-            this.IntelligenceScoreControl.Size = new System.Drawing.Size(389, 32);
-            this.IntelligenceScoreControl.TabIndex = 237;
-            // 
-            // WisdomScoreControl
-            // 
-            this.WisdomScoreControl.CstmTxt_AbilityAbbrvLabelText = "WIS";
-            this.WisdomScoreControl.CstmTxt_AbilityModText = "-5";
-            this.WisdomScoreControl.CstmTxt_AbilityTotalText = "0";
-            this.WisdomScoreControl.CstmTxt_BaseAbilityScoreText = "";
-            this.WisdomScoreControl.CstmTxt_EnhancementScoreText = "";
-            this.WisdomScoreControl.CstmTxt_InherentScoreText = "";
-            this.WisdomScoreControl.CstmTxt_PenaltyScoreText = "";
-            this.WisdomScoreControl.CstmTxt_TempScoreText = "";
-            this.WisdomScoreControl.Location = new System.Drawing.Point(17, 166);
-            this.WisdomScoreControl.Name = "WisdomScoreControl";
-            this.WisdomScoreControl.Size = new System.Drawing.Size(389, 32);
-            this.WisdomScoreControl.TabIndex = 238;
-            // 
-            // CharismaScoreControl
-            // 
-            this.CharismaScoreControl.CstmTxt_AbilityAbbrvLabelText = "CHA";
-            this.CharismaScoreControl.CstmTxt_AbilityModText = "-5";
-            this.CharismaScoreControl.CstmTxt_AbilityTotalText = "0";
-            this.CharismaScoreControl.CstmTxt_BaseAbilityScoreText = "";
-            this.CharismaScoreControl.CstmTxt_EnhancementScoreText = "";
-            this.CharismaScoreControl.CstmTxt_InherentScoreText = "";
-            this.CharismaScoreControl.CstmTxt_PenaltyScoreText = "";
-            this.CharismaScoreControl.CstmTxt_TempScoreText = "";
-            this.CharismaScoreControl.Location = new System.Drawing.Point(17, 194);
-            this.CharismaScoreControl.Name = "CharismaScoreControl";
-            this.CharismaScoreControl.Size = new System.Drawing.Size(389, 32);
-            this.CharismaScoreControl.TabIndex = 239;
-            // 
             // SaveSheetButton
             // 
             this.SaveSheetButton.Location = new System.Drawing.Point(735, 97);
@@ -740,12 +651,112 @@
             this.characterSheetRichText.TabIndex = 243;
             this.characterSheetRichText.Text = "";
             // 
+            // savedFileTimestamp
+            // 
+            this.savedFileTimestamp.AutoSize = true;
+            this.savedFileTimestamp.Location = new System.Drawing.Point(817, 102);
+            this.savedFileTimestamp.Name = "savedFileTimestamp";
+            this.savedFileTimestamp.Size = new System.Drawing.Size(171, 13);
+            this.savedFileTimestamp.TabIndex = 244;
+            this.savedFileTimestamp.Text = "Timestamp will display when saved";
+            // 
+            // CharismaScoreControl
+            // 
+            this.CharismaScoreControl.CstmTxt_AbilityAbbrvLabelText = "CHA";
+            this.CharismaScoreControl.CstmTxt_AbilityModText = "-5";
+            this.CharismaScoreControl.CstmTxt_AbilityTotalText = "0";
+            this.CharismaScoreControl.CstmTxt_BaseAbilityScoreText = "";
+            this.CharismaScoreControl.CstmTxt_EnhancementScoreText = "";
+            this.CharismaScoreControl.CstmTxt_InherentScoreText = "";
+            this.CharismaScoreControl.CstmTxt_PenaltyScoreText = "";
+            this.CharismaScoreControl.CstmTxt_TempScoreText = "";
+            this.CharismaScoreControl.Location = new System.Drawing.Point(17, 194);
+            this.CharismaScoreControl.Name = "CharismaScoreControl";
+            this.CharismaScoreControl.Size = new System.Drawing.Size(389, 32);
+            this.CharismaScoreControl.TabIndex = 239;
+            // 
+            // WisdomScoreControl
+            // 
+            this.WisdomScoreControl.CstmTxt_AbilityAbbrvLabelText = "WIS";
+            this.WisdomScoreControl.CstmTxt_AbilityModText = "-5";
+            this.WisdomScoreControl.CstmTxt_AbilityTotalText = "0";
+            this.WisdomScoreControl.CstmTxt_BaseAbilityScoreText = "";
+            this.WisdomScoreControl.CstmTxt_EnhancementScoreText = "";
+            this.WisdomScoreControl.CstmTxt_InherentScoreText = "";
+            this.WisdomScoreControl.CstmTxt_PenaltyScoreText = "";
+            this.WisdomScoreControl.CstmTxt_TempScoreText = "";
+            this.WisdomScoreControl.Location = new System.Drawing.Point(17, 166);
+            this.WisdomScoreControl.Name = "WisdomScoreControl";
+            this.WisdomScoreControl.Size = new System.Drawing.Size(389, 32);
+            this.WisdomScoreControl.TabIndex = 238;
+            // 
+            // IntelligenceScoreControl
+            // 
+            this.IntelligenceScoreControl.CstmTxt_AbilityAbbrvLabelText = "INT";
+            this.IntelligenceScoreControl.CstmTxt_AbilityModText = "-5";
+            this.IntelligenceScoreControl.CstmTxt_AbilityTotalText = "0";
+            this.IntelligenceScoreControl.CstmTxt_BaseAbilityScoreText = "";
+            this.IntelligenceScoreControl.CstmTxt_EnhancementScoreText = "";
+            this.IntelligenceScoreControl.CstmTxt_InherentScoreText = "";
+            this.IntelligenceScoreControl.CstmTxt_PenaltyScoreText = "";
+            this.IntelligenceScoreControl.CstmTxt_TempScoreText = "";
+            this.IntelligenceScoreControl.Location = new System.Drawing.Point(17, 138);
+            this.IntelligenceScoreControl.Name = "IntelligenceScoreControl";
+            this.IntelligenceScoreControl.Size = new System.Drawing.Size(389, 32);
+            this.IntelligenceScoreControl.TabIndex = 237;
+            // 
+            // ConstitutionScoreControl
+            // 
+            this.ConstitutionScoreControl.CstmTxt_AbilityAbbrvLabelText = "CON";
+            this.ConstitutionScoreControl.CstmTxt_AbilityModText = "-5";
+            this.ConstitutionScoreControl.CstmTxt_AbilityTotalText = "0";
+            this.ConstitutionScoreControl.CstmTxt_BaseAbilityScoreText = "";
+            this.ConstitutionScoreControl.CstmTxt_EnhancementScoreText = "";
+            this.ConstitutionScoreControl.CstmTxt_InherentScoreText = "";
+            this.ConstitutionScoreControl.CstmTxt_PenaltyScoreText = "";
+            this.ConstitutionScoreControl.CstmTxt_TempScoreText = "";
+            this.ConstitutionScoreControl.Location = new System.Drawing.Point(17, 110);
+            this.ConstitutionScoreControl.Name = "ConstitutionScoreControl";
+            this.ConstitutionScoreControl.Size = new System.Drawing.Size(389, 32);
+            this.ConstitutionScoreControl.TabIndex = 236;
+            // 
+            // DexterityScoreControl
+            // 
+            this.DexterityScoreControl.CstmTxt_AbilityAbbrvLabelText = "DEX";
+            this.DexterityScoreControl.CstmTxt_AbilityModText = "-5";
+            this.DexterityScoreControl.CstmTxt_AbilityTotalText = "0";
+            this.DexterityScoreControl.CstmTxt_BaseAbilityScoreText = "";
+            this.DexterityScoreControl.CstmTxt_EnhancementScoreText = "";
+            this.DexterityScoreControl.CstmTxt_InherentScoreText = "";
+            this.DexterityScoreControl.CstmTxt_PenaltyScoreText = "";
+            this.DexterityScoreControl.CstmTxt_TempScoreText = "";
+            this.DexterityScoreControl.Location = new System.Drawing.Point(17, 83);
+            this.DexterityScoreControl.Name = "DexterityScoreControl";
+            this.DexterityScoreControl.Size = new System.Drawing.Size(389, 32);
+            this.DexterityScoreControl.TabIndex = 235;
+            // 
+            // StrengthScoreControl
+            // 
+            this.StrengthScoreControl.CstmTxt_AbilityAbbrvLabelText = "STR";
+            this.StrengthScoreControl.CstmTxt_AbilityModText = "-5";
+            this.StrengthScoreControl.CstmTxt_AbilityTotalText = "0";
+            this.StrengthScoreControl.CstmTxt_BaseAbilityScoreText = "";
+            this.StrengthScoreControl.CstmTxt_EnhancementScoreText = "";
+            this.StrengthScoreControl.CstmTxt_InherentScoreText = "";
+            this.StrengthScoreControl.CstmTxt_PenaltyScoreText = "";
+            this.StrengthScoreControl.CstmTxt_TempScoreText = "";
+            this.StrengthScoreControl.Location = new System.Drawing.Point(17, 53);
+            this.StrengthScoreControl.Name = "StrengthScoreControl";
+            this.StrengthScoreControl.Size = new System.Drawing.Size(389, 32);
+            this.StrengthScoreControl.TabIndex = 234;
+            // 
             // CharacterSheetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(1239, 643);
+            this.Controls.Add(this.savedFileTimestamp);
             this.Controls.Add(this.characterSheetRichText);
             this.Controls.Add(this.ReadFileButton);
             this.Controls.Add(this.SaveSheetButton);
@@ -863,5 +874,6 @@
         private System.Windows.Forms.Button SaveSheetButton;
         private System.Windows.Forms.Button ReadFileButton;
         private System.Windows.Forms.RichTextBox characterSheetRichText;
+        private System.Windows.Forms.Label savedFileTimestamp;
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CITP280
@@ -14,7 +15,7 @@ namespace CITP280
     public partial class CharacterSheetForm : Form
     {
         //create list list of playable classes
-        private List<IPlayableClass> playableClasses;
+        private List<BaseClass> playableClasses;
 
         //gets the directory the program is being executed from
         private string exeDirectory = Path.GetDirectoryName(new Uri(Assembly.GetEntryAssembly().CodeBase).AbsolutePath);
@@ -34,25 +35,24 @@ namespace CITP280
             this.WisdomScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Wisdom_AbilityScoreChanged);
             this.CharismaScoreControl.AbilityScoreChanged += new AbilityScoreCalculationControl.AbilityScoreChangedEventHandler(this.Charisma_AbilityScoreChanged);
 
-            //create list of playable classes
-            playableClasses = new List<IPlayableClass>
-                {
-                    new Barbarian(),
-                    new Bard(),
-                    new Cleric(),
-                    new Fighter(),
-                    new Monk(),
-                    new Sorcerer()
-                };
-
-            //for each playable class add the class's name to the classNames dropdown list
-            foreach (IPlayableClass playable in playableClasses)
+            playableClasses = new List<BaseClass>()
             {
-                cbClassNames1.Items.Add(playable.ClassName);
-            }
+                new Barbarian(),
+                new Bard(),
+                new Cleric(),
+                new Fighter(),
+                new Monk(),
+                new Sorcerer()
+            };
 
-            characterSheetFullPath = Path.Combine(exeDirectory, characterSheetFileName);
+            //create list of playable classes
+            foreach (BaseClass baseClass in playableClasses)
+            {
+                cbClassNames1.Items.Add(baseClass.ClassName);
+            }
+           characterSheetFullPath = Path.Combine(exeDirectory, characterSheetFileName);
         }
+
 
         /// <summary>
         /// Listens for the index to change on the class names dropdown in the class recorder section.
@@ -271,9 +271,14 @@ namespace CITP280
                 PenaltyScore = charismaPenaltyScore
             };
 
-            // serialize JSON to a string and then write string to a file
-            File.WriteAllText(characterSheetFullPath, JsonConvert.SerializeObject(characterSheet, Formatting.Indented));
-            
+
+            // creating a new thread when saving a file
+            Thread saveThread = new Thread(new ThreadStart(() =>
+            {
+               new CharacterSheetSaver(characterSheetFullPath, characterSheet).SaveCharacterSheet();
+            }));
+            saveThread.Start();
+            savedFileTimestamp.Text = "Last Saved Time: " + DateTime.Now.ToString();
         }
 
         //when clicked, display file contents from the file to the richTextBox

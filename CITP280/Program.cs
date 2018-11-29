@@ -20,6 +20,7 @@ namespace CITP280
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CharacterSheetForm());

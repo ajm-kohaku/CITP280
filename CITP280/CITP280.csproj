@@ -85,8 +85,10 @@
     </Compile>
     <Compile Include="util\BaseAttackScale.cs" />
     <Compile Include="util\AbilityModChangedEventArgs.cs" />
+    <Compile Include="util\CharacterSheetSaver.cs" />
     <Compile Include="util\ClassTypes.cs" />
     <Compile Include="util\CoreAttributes.cs" />
+    <Compile Include="util\PlayableClassList.cs" />
     <Compile Include="util\SavesScale.cs" />
     <Compile Include="util\ScaleCalculations.cs" />
     <EmbeddedResource Include="CharacterSheetForm.resx">
