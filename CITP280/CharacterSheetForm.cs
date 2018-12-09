@@ -278,14 +278,14 @@ namespace CITP280
                new CharacterSheetSaver(characterSheetFullPath, characterSheet).SaveCharacterSheet();
             }));
             saveThread.Start();
-            savedFileTimestamp.Text = "Last Saved Time: " + DateTime.Now.ToString();
+            //savedFileTimestamp.Text = "Last Saved Time: " + DateTime.Now.ToString();
         }
 
         //when clicked, display file contents from the file to the richTextBox
         private void ReadFileButton_Click(object sender, EventArgs e)
         {
             
-            characterSheetRichText.Text = File.ReadAllText(characterSheetFullPath); 
+            //characterSheetRichText.Text = File.ReadAllText(characterSheetFullPath); 
         }
     }
 }

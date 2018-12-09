@@ -56,6 +56,8 @@
             this.PenaltyScoreTextBox.TabIndex = 94;
             this.PenaltyScoreTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PenaltyScoreTextBox.TextChanged += new System.EventHandler(this.AbilityAggregateScore_TextChanged);
+            this.PenaltyScoreTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PenaltyScoreTextBox_Validating);
+            this.PenaltyScoreTextBox.Validated += new System.EventHandler(this.PenaltyScoreTextBox_Validated);
             // 
             // TempScoreTextBox
             // 
@@ -70,6 +72,8 @@
             this.TempScoreTextBox.TabIndex = 92;
             this.TempScoreTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TempScoreTextBox.TextChanged += new System.EventHandler(this.AbilityAggregateScore_TextChanged);
+            this.TempScoreTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TempScoreTextBox_Validating);
+            this.TempScoreTextBox.Validated += new System.EventHandler(this.TempScoreTextBox_Validated);
             // 
             // addSymbol3
             // 
@@ -96,7 +100,9 @@
             this.InherentScoreTextBox.Size = new System.Drawing.Size(35, 21);
             this.InherentScoreTextBox.TabIndex = 90;
             this.InherentScoreTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.InherentScoreTextBox.TextChanged += new System.EventHandler(this.AbilityAggregateScore_TextChanged); 
+            this.InherentScoreTextBox.TextChanged += new System.EventHandler(this.AbilityAggregateScore_TextChanged);
+            this.InherentScoreTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.InherentScoreTextBox_Validating);
+            this.InherentScoreTextBox.Validated += new System.EventHandler(this.InherentScoreTextBox_Validated);
             // 
             // EnhancementScoreTextBox
             // 
@@ -111,6 +117,8 @@
             this.EnhancementScoreTextBox.TabIndex = 88;
             this.EnhancementScoreTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EnhancementScoreTextBox.TextChanged += new System.EventHandler(this.AbilityAggregateScore_TextChanged);
+            this.EnhancementScoreTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EnhancementScoreTextBox_Validating);
+            this.EnhancementScoreTextBox.Validated += new System.EventHandler(this.EnhancementScoreTextBox_Validated);
             // 
             // BaseAbilityScoreTextBox
             // 
@@ -125,6 +133,8 @@
             this.BaseAbilityScoreTextBox.TabIndex = 87;
             this.BaseAbilityScoreTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BaseAbilityScoreTextBox.TextChanged += new System.EventHandler(this.AbilityAggregateScore_TextChanged);
+            this.BaseAbilityScoreTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.BaseAbilityScoreTextBox_Validating);
+            this.BaseAbilityScoreTextBox.Validated += new System.EventHandler(this.BaseAbilityScoreTextBox_Validated);
             // 
             // AbilityModTextBox
             // 
@@ -142,8 +152,9 @@
             // 
             // AbilityTotalTextBox
             // 
-            this.AbilityTotalTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AbilityTotalTextBox.BackColor = System.Drawing.Color.AntiqueWhite;
             this.AbilityTotalTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AbilityTotalTextBox.Enabled = false;
             this.AbilityTotalTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AbilityTotalTextBox.Location = new System.Drawing.Point(52, 5);
             this.AbilityTotalTextBox.Margin = new System.Windows.Forms.Padding(5);

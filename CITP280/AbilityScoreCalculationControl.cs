@@ -2,6 +2,8 @@
 using System;
 using System.Windows.Forms;
 
+using static CITP280.util.TextBoxValidator;
+
 namespace CITP280
 {
     /**
@@ -113,27 +115,11 @@ namespace CITP280
             Int32.TryParse(EnhancementScoreTextBox.Text, out int enhanceScore);
             Int32.TryParse(InherentScoreTextBox.Text, out int inherentScore);
             Int32.TryParse(TempScoreTextBox.Text, out int tempScore);
-            Int32.TryParse(PenaltyScoreTextBox.Text, out int penaltyScore1);
-            int penaltyScore = 0;
-            
-            //if the penalty text is not empty, check if it's a number, otherwise do nothing. //todo: make this check common for all score text boxes
-            try
-            {
-                if (PenaltyScoreTextBox.Text.Length > 0)
-                {
-                    penaltyScore = Int32.Parse(PenaltyScoreTextBox.Text);
-                }
-            }
-            catch (FormatException ex)
-            {
-
-                MessageBox.Show("Penalty Score is an invalid number. Please correct and try again");
-
-            }
+            Int32.TryParse(PenaltyScoreTextBox.Text, out int penaltyScore);
             int total = baseScore + enhanceScore + inherentScore + tempScore - penaltyScore;
             AbilityTotalTextBox.Text = total.ToString();
         }
-
+        
         /// <summary>
         /// Calculates the value of the Ability modifier based on the passed in value.
         /// </summary>
@@ -142,6 +128,73 @@ namespace CITP280
         private string AbilityModifierCalculation(Int32 total)
         {
             return Math.Max(-5, (total - 10) / 2).ToString();
+        }
+
+        private void BaseAbilityScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!IsValidInteger(BaseAbilityScoreTextBox.Text))
+            {
+                InvalidIntegerTextBox(BaseAbilityScoreTextBox);
+            }
+        }
+
+        private void BaseAbilityScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(BaseAbilityScoreTextBox);
+        }
+
+        private void EnhancementScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!IsValidInteger(EnhancementScoreTextBox.Text))
+            {
+                InvalidIntegerTextBox(EnhancementScoreTextBox);
+            }
+        }
+
+        private void EnhancementScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(EnhancementScoreTextBox);
+
+        }
+
+        private void InherentScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!IsValidInteger(InherentScoreTextBox.Text))
+            {
+                InvalidIntegerTextBox(InherentScoreTextBox);
+            }
+        }
+
+        private void InherentScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(InherentScoreTextBox);
+        }
+
+        private void TempScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(TempScoreTextBox);
+        }
+
+        private void TempScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!IsValidInteger(TempScoreTextBox.Text))
+            {
+                InvalidIntegerTextBox(TempScoreTextBox);
+            }
+        }
+
+        private void PenaltyScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(PenaltyScoreTextBox);
+
+        }
+
+        private void PenaltyScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!IsValidInteger(PenaltyScoreTextBox.Text))
+            {
+                InvalidIntegerTextBox(PenaltyScoreTextBox);
+            }
         }
     }
 }

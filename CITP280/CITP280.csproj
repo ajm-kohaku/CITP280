@@ -61,10 +61,17 @@
     <Compile Include="CharacterSheetForm.Designer.cs">
       <DependentUpon>CharacterSheetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassRecorderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClassRecorderControl.Designer.cs">
+      <DependentUpon>ClassRecorderControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="data\AbilityData.cs" />
     <Compile Include="data\CharacterSheetData.cs" />
     <Compile Include="playerclass\Barbarian.cs" />
     <Compile Include="playerclass\BaseClass.cs" />
+    <Compile Include="playerclass\Paladin.cs" />
     <Compile Include="playerclass\Sorcerer.cs" />
     <Compile Include="playerclass\Fighter.cs" />
     <Compile Include="playerclass\ClassTable.cs" />
@@ -72,6 +79,7 @@
     <Compile Include="playerclass\IPlayableClass.cs" />
     <Compile Include="playerclass\Monk.cs" />
     <Compile Include="playerclass\Bard.cs" />
+    <Compile Include="playerclass\Wizard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AbilityScoreCalculationControl.cs">
@@ -91,8 +99,12 @@
     <Compile Include="util\PlayableClassList.cs" />
     <Compile Include="util\SavesScale.cs" />
     <Compile Include="util\ScaleCalculations.cs" />
+    <Compile Include="util\TextBoxValidator.cs" />
     <EmbeddedResource Include="CharacterSheetForm.resx">
       <DependentUpon>CharacterSheetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassRecorderControl.resx">
+      <DependentUpon>ClassRecorderControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

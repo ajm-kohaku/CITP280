@@ -73,16 +73,13 @@
             this.label78 = new System.Windows.Forms.Label();
             this.textBox38 = new System.Windows.Forms.TextBox();
             this.tbCurrentHealth = new System.Windows.Forms.TextBox();
-            this.SaveSheetButton = new System.Windows.Forms.Button();
-            this.ReadFileButton = new System.Windows.Forms.Button();
-            this.characterSheetRichText = new System.Windows.Forms.RichTextBox();
-            this.savedFileTimestamp = new System.Windows.Forms.Label();
             this.CharismaScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.WisdomScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.IntelligenceScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.ConstitutionScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.DexterityScoreControl = new CITP280.AbilityScoreCalculationControl();
             this.StrengthScoreControl = new CITP280.AbilityScoreCalculationControl();
+            this.classRecorderControl1 = new CITP280.ClassRecorderControl();
             this.SuspendLayout();
             // 
             // lblAbilitiesSection
@@ -622,44 +619,6 @@
             this.tbCurrentHealth.Text = " / ";
             this.tbCurrentHealth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // SaveSheetButton
-            // 
-            this.SaveSheetButton.Location = new System.Drawing.Point(735, 97);
-            this.SaveSheetButton.Name = "SaveSheetButton";
-            this.SaveSheetButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveSheetButton.TabIndex = 241;
-            this.SaveSheetButton.Text = "Save Sheet";
-            this.SaveSheetButton.UseVisualStyleBackColor = true;
-            this.SaveSheetButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // ReadFileButton
-            // 
-            this.ReadFileButton.Location = new System.Drawing.Point(1127, 97);
-            this.ReadFileButton.Name = "ReadFileButton";
-            this.ReadFileButton.Size = new System.Drawing.Size(75, 23);
-            this.ReadFileButton.TabIndex = 242;
-            this.ReadFileButton.Text = "Read File";
-            this.ReadFileButton.UseVisualStyleBackColor = true;
-            this.ReadFileButton.Click += new System.EventHandler(this.ReadFileButton_Click);
-            // 
-            // characterSheetRichText
-            // 
-            this.characterSheetRichText.Location = new System.Drawing.Point(735, 121);
-            this.characterSheetRichText.Name = "characterSheetRichText";
-            this.characterSheetRichText.ReadOnly = true;
-            this.characterSheetRichText.Size = new System.Drawing.Size(467, 496);
-            this.characterSheetRichText.TabIndex = 243;
-            this.characterSheetRichText.Text = "";
-            // 
-            // savedFileTimestamp
-            // 
-            this.savedFileTimestamp.AutoSize = true;
-            this.savedFileTimestamp.Location = new System.Drawing.Point(817, 102);
-            this.savedFileTimestamp.Name = "savedFileTimestamp";
-            this.savedFileTimestamp.Size = new System.Drawing.Size(171, 13);
-            this.savedFileTimestamp.TabIndex = 244;
-            this.savedFileTimestamp.Text = "Timestamp will display when saved";
-            // 
             // CharismaScoreControl
             // 
             this.CharismaScoreControl.CstmTxt_AbilityAbbrvLabelText = "CHA";
@@ -750,16 +709,21 @@
             this.StrengthScoreControl.Size = new System.Drawing.Size(389, 32);
             this.StrengthScoreControl.TabIndex = 234;
             // 
+            // classRecorderControl1
+            // 
+            this.classRecorderControl1.Enabled = false;
+            this.classRecorderControl1.Location = new System.Drawing.Point(735, 74);
+            this.classRecorderControl1.Name = "classRecorderControl1";
+            this.classRecorderControl1.Size = new System.Drawing.Size(395, 25);
+            this.classRecorderControl1.TabIndex = 240;
+            // 
             // CharacterSheetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(1239, 643);
-            this.Controls.Add(this.savedFileTimestamp);
-            this.Controls.Add(this.characterSheetRichText);
-            this.Controls.Add(this.ReadFileButton);
-            this.Controls.Add(this.SaveSheetButton);
+            this.Controls.Add(this.classRecorderControl1);
             this.Controls.Add(this.CharismaScoreControl);
             this.Controls.Add(this.WisdomScoreControl);
             this.Controls.Add(this.IntelligenceScoreControl);
@@ -871,9 +835,6 @@
         private AbilityScoreCalculationControl IntelligenceScoreControl;
         private AbilityScoreCalculationControl WisdomScoreControl;
         private AbilityScoreCalculationControl CharismaScoreControl;
-        private System.Windows.Forms.Button SaveSheetButton;
-        private System.Windows.Forms.Button ReadFileButton;
-        private System.Windows.Forms.RichTextBox characterSheetRichText;
-        private System.Windows.Forms.Label savedFileTimestamp;
+        private ClassRecorderControl classRecorderControl1;
     }
 }
