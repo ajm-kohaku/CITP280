@@ -2,6 +2,8 @@
 using System;
 using System.Windows.Forms;
 
+using static CITP280.util.TextBoxValidator;
+
 namespace CITP280
 {
     /**
@@ -23,8 +25,8 @@ namespace CITP280
         }
 
         public string CstmTxt_AbilityTotalText {
-            get => AbilityTotalTextBox.Text;
-            set => AbilityTotalTextBox.Text = value;
+            get => AbilityTotalLabel.Text;
+            set => AbilityTotalLabel.Text = value;
         }
 
         public string CstmTxt_AbilityModText {
@@ -98,7 +100,7 @@ namespace CITP280
         /// </summary>
         private void AbilityTotalTextBox_TextChanged(object sender, EventArgs e)
         {
-            Int32.TryParse(AbilityTotalTextBox.Text, out int score);
+            Int32.TryParse(AbilityTotalLabel.Text, out int score);
             AbilityScoreChangedEventArgs args = new AbilityScoreChangedEventArgs() { Score = score };
             OnAbilityScoreChanged(args);
 
@@ -131,7 +133,7 @@ namespace CITP280
 
             }
             int total = baseScore + enhanceScore + inherentScore + tempScore - penaltyScore;
-            AbilityTotalTextBox.Text = total.ToString();
+            AbilityTotalLabel.Text = total.ToString();
         }
 
         /// <summary>
@@ -142,6 +144,56 @@ namespace CITP280
         private string AbilityModifierCalculation(Int32 total)
         {
             return Math.Max(-5, (total - 10) / 2).ToString();
+        }
+
+        private void BaseAbilityScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(BaseAbilityScoreTextBox);
+        }
+
+        private void BaseAbilityScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ValidateIntegerTextBox(BaseAbilityScoreTextBox);
+        }
+
+        private void EnhancementScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(EnhancementScoreTextBox);
+        }
+
+        private void EnhancementScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ValidateIntegerTextBox(EnhancementScoreTextBox);
+        }
+
+        private void InherentScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(InherentScoreTextBox);
+        }
+
+        private void InherentScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ValidateIntegerTextBox(InherentScoreTextBox);
+        }
+
+        private void TempScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(TempScoreTextBox);
+        }
+
+        private void TempScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ValidateIntegerTextBox(TempScoreTextBox);
+        }
+
+        private void PenaltyScoreTextBox_Validated(object sender, EventArgs e)
+        {
+            ResetTextBoxFormat(PenaltyScoreTextBox);
+        }
+
+        private void PenaltyScoreTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ValidateIntegerTextBox(PenaltyScoreTextBox);
         }
     }
 }

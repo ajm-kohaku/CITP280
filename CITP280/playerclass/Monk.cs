@@ -1,13 +1,8 @@
 ﻿using CITP280.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CITP280.playerclass
 {
-    class Monk : BaseClass
+    class Monk : CoreClass
     {
         public override string ClassName => "Monk";
         public override int SkillRanksPerLevel => 4;

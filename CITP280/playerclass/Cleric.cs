@@ -1,13 +1,8 @@
 ﻿using CITP280.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CITP280.playerclass
 {
-    public class Cleric : BaseClass
+    public class Cleric : CoreClass
     {
         public override string ClassName => "Cleric";
 

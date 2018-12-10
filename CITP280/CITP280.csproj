@@ -39,6 +39,9 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json.Schema, Version=3.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Schema.3.0.10\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -55,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterSheetForm.Aggregator.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CharacterSheetForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,8 +69,11 @@
     </Compile>
     <Compile Include="data\AbilityData.cs" />
     <Compile Include="data\CharacterSheetData.cs" />
+    <Compile Include="data\ClassRecordData.cs" />
     <Compile Include="playerclass\Barbarian.cs" />
-    <Compile Include="playerclass\BaseClass.cs" />
+    <Compile Include="playerclass\CoreClass.cs" />
+    <Compile Include="playerclass\Paladin.cs" />
+    <Compile Include="playerclass\Wizard.cs" />
     <Compile Include="playerclass\Sorcerer.cs" />
     <Compile Include="playerclass\Fighter.cs" />
     <Compile Include="playerclass\ClassTable.cs" />
@@ -91,6 +100,7 @@
     <Compile Include="util\PlayableClassList.cs" />
     <Compile Include="util\SavesScale.cs" />
     <Compile Include="util\ScaleCalculations.cs" />
+    <Compile Include="util\TextBoxValidator.cs" />
     <EmbeddedResource Include="CharacterSheetForm.resx">
       <DependentUpon>CharacterSheetForm.cs</DependentUpon>
     </EmbeddedResource>

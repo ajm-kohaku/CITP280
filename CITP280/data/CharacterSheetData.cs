@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CITP280.data
 {
@@ -14,13 +10,7 @@ namespace CITP280.data
         public AbilityData Intelligence { get; set; }
         public AbilityData Wisdom { get; set; }
         public AbilityData Charisma { get; set; }
-        public int DamageTaken { get; set; }
-        public int MaxHealth { get; set; }
-        public int PlayerClassLevel { get; set; }
-        public string PlayerClassName { get; set; }
-        public int FavoredClassSkillCount { get; set; }
-        public int FavoredClassHealthCount { get; set; }
-        public int FavoredClassOtherCount { get; set; }
-
+        public List<ClassRecordData> ClassRecordList { get; set; }
+        public string DamageTaken { get; set; }
     }
 }

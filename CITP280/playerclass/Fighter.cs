@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CITP280.util;
+﻿using CITP280.util;
 
 namespace CITP280.playerclass
 {
-    class Fighter : BaseClass
+    class Fighter : CoreClass
     {
         public override string ClassName => "Fighter";
 

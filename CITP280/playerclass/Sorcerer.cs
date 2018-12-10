@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CITP280.util;
+﻿using CITP280.util;
 
 namespace CITP280.playerclass
 {
-    public class Sorcerer : BaseClass
+    public class Sorcerer : CoreClass
     {
         public override string ClassName => "Sorcerer";
 

@@ -1,9 +1,4 @@
 ﻿using CITP280.playerclass;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CITP280.util
@@ -13,7 +8,7 @@ namespace CITP280.util
     /// 
     /// </summary>
     /// <typeparam name="T"> accepts generic class of type BaseClass</typeparam>
-    public class PlayableClassList<T> where T: BaseClass
+    public class PlayableClassList<T> where T: CoreClass
     {
         /// <summary>
         /// Adds player class to the combobox

@@ -2,7 +2,7 @@
 
 namespace CITP280.playerclass
 {
-    public class Barbarian : BaseClass
+    public class Barbarian : CoreClass
     {
         public override string ClassName => "Barbarian";
 
