@@ -195,5 +195,19 @@ namespace CITP280
         {
             ValidateIntegerTextBox(PenaltyScoreTextBox);
         }
+
+        public void ClearControl()
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    textBox.Text = null;
+                }
+            }
+
+            AbilityTotalLabel.Text = null;
+        }
     }
 }

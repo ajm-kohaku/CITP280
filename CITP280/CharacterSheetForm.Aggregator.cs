@@ -183,18 +183,13 @@ namespace CITP280
                         comboBox.SelectedIndex = 0;
                 }
 
-                if (control is CheckBox)
+                if (control is AbilityScoreCalculationControl)
                 {
-                    CheckBox checkBox = (CheckBox)control;
-                    checkBox.Checked = false;
-                }
-
-                if (control is ListBox)
-                {
-                    ListBox listBox = (ListBox)control;
-                    listBox.ClearSelected();
+                    ((AbilityScoreCalculationControl)control).ClearControl();
                 }
             }
+
+            tbCurrentHealth.Text = " / ";
         }
     }
 }

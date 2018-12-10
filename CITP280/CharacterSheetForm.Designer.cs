@@ -865,10 +865,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1126, 534);
+            this.ClientSize = new System.Drawing.Size(1126, 532);
             this.Controls.Add(this.tbClass2Level);
             this.Controls.Add(this.tbClass2FavoredClassOther);
             this.Controls.Add(this.tbClass2FavoredClassHitPoints);
@@ -927,7 +928,13 @@
             this.Controls.Add(this.label29);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1142, 571);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1142, 571);
             this.Name = "CharacterSheetForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CharacterSheetForm";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -173,7 +173,7 @@ namespace CITP280
             IPlayableClass playableClass = playableClasses.Find(pc => pc.ClassName.Contains(cbClassNames1.GetItemText(item: cbClassNames1.SelectedItem)));
             Int32.TryParse(tbClass1Level.Text, out int level);
             Int32.TryParse(ConstitutionScoreControl.CstmTxt_AbilityModText, out int conMod);
-            lblClass1HealthFromLevel.Text = ((level * playableClass.DieType) + (level * conMod)).ToString();
+            lblClass1HealthFromLevel.Text = (level * (playableClass.DieType +level * conMod)).ToString();
         }
 
         private void UpdateClass2HealthFromLevel()
@@ -181,7 +181,7 @@ namespace CITP280
             IPlayableClass playableClass = playableClasses.Find(pc => pc.ClassName.Contains(cbClassNames2.GetItemText(item: cbClassNames2.SelectedItem)));
             Int32.TryParse(tbClass2Level.Text, out int level);
             Int32.TryParse(ConstitutionScoreControl.CstmTxt_AbilityModText, out int conMod);
-            lblClass2HealthFromLevel.Text = ((level * playableClass.DieType) + (level * conMod)).ToString();
+            lblClass2HealthFromLevel.Text = (level*(playableClass.DieType + conMod)).ToString();
         }
 
         /// <summary>
@@ -202,7 +202,6 @@ namespace CITP280
         private void Constitution_AbilityScoreChanged(object sender, AbilityScoreChangedEventArgs e)
         {
             ConstitutionScoreControl.CstmTxt_AbilityModText = e.ModifierString;
-            //updates class health. todo://revamp this to make better use of events
             if (tbClass1Level.Text != null)
             {
                 UpdateClass1HealthFromLevel();
