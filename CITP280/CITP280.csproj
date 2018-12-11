@@ -53,10 +53,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7C931EA50A7D38400F0208D84506BEF628EFAC34</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>8D5783E5134062E277EF46B8328F3CD92B15C0FB</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>CITP280_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>CITP280_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -96,9 +96,9 @@
     <Compile Include="CharacterSheetForm.Designer.cs">
       <DependentUpon>CharacterSheetForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="data\AbilityData.cs" />
+    <Compile Include="data\AttributeData.cs" />
     <Compile Include="data\CharacterSheetData.cs" />
-    <Compile Include="data\ClassRecordData.cs" />
+    <Compile Include="data\CharacterClassData.cs" />
     <Compile Include="playerclass\Barbarian.cs" />
     <Compile Include="playerclass\CoreClass.cs" />
     <Compile Include="playerclass\Paladin.cs" />
@@ -175,6 +175,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\CharacterSheetDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\CharacterSheetDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>CharacterSheetDB.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

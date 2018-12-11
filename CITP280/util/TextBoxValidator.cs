@@ -29,5 +29,23 @@ namespace CITP280.util
         {
             return Int32.TryParse(integerString, out int ignore) || String.IsNullOrEmpty(integerString);
         }
+
+        public static Int32 ConvertToInt(TextBox textBox)
+        {
+            Int32.TryParse(textBox.Text, out int integer);
+            return integer;
+        }
+
+        public static Int32 ConvertToInt(Label label)
+        {
+            Int32.TryParse(label.Text, out int integer);
+            return integer;
+        }
+
+        public static Int32 ConvertToInt(string val)
+        {
+            Int32.TryParse(val, out int integer);
+            return integer;
+        }
     }
 }

@@ -2,15 +2,17 @@
 
 namespace CITP280.data
 {
-    public class CharacterSheetData
+    public struct CharacterSheetData
     {
-        public AbilityData Strength { get; set; }
-        public AbilityData Dexterity { get; set; }
-        public AbilityData Constitution { get; set; }
-        public AbilityData Intelligence { get; set; }
-        public AbilityData Wisdom { get; set; }
-        public AbilityData Charisma { get; set; }
-        public List<ClassRecordData> ClassRecordList { get; set; }
-        public string DamageTaken { get; set; }
+        public int CharacterId { get; }
+        public string CharacterName { get; }
+        public AttributeData Strength { get; set; }
+        public AttributeData Dexterity { get; set; }
+        public AttributeData Constitution { get; set; }
+        public AttributeData Intelligence { get; set; }
+        public AttributeData Wisdom { get; set; }
+        public AttributeData Charisma { get; set; }
+        public List<CharacterClassData> ClassRecordList { get; set; }
+        public int DamageTaken { get; set; }
     }
 }
